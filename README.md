@@ -1,30 +1,31 @@
-# 🌮 App Restaurante Mexicano - Segundo Desafío Práctico
+# App Restaurante Mexicano - Segundo Desafío Práctico
 
 Aplicación móvil desarrollada en **React Native con Expo**, TypeScript y React Navigation para la gestión de órdenes de comida mexicana, cálculo de impuestos e historial de compras persistente.
 
 ---
 
-## 👥 Información del Proyecto
+## Información del Proyecto
 - **Materia:** Desarrollo de Aplicaciones Móviles / DPS
+- **Alumno:** Gonzalez Gonzalez, Alison Valeria / GG220710
 - **Desafío:** Segundo Desafío Práctico (App Restaurante Mexicano)
 - **Tecnologías:** React Native, Expo SDK 57, TypeScript, React Navigation, AsyncStorage.
 
 ---
 
-## 📹 Enlace del Video Demostrativo
+## Enlace del Video Demostrativo
 > **Enlace al video explicativo (YouTube / Google Drive):**  
-> 🔗 `[COLOCA AQUÍ EL ENLACE DE TU VIDEO DE DEMOSTRACIÓN]`
+> `[COLOCA AQUÍ EL ENLACE DE TU VIDEO DE DEMOSTRACIÓN]`
 
 ---
 
-## 🔑 Credenciales de Acceso (Paso 1)
+## Credenciales de Acceso (Paso 1)
 Para ingresar a la aplicación en la pantalla de inicio de sesión:
 - **Usuario:** `valeria`
 - **Contraseña:** `1234`
 
 ---
 
-## 📱 Funcionalidades y Cumplimiento de Rúbrica
+## Funcionalidades y Cumplimiento de Rúbrica
 
 ### 1. Inicio de Sesión y Navegación
 - [x] Validación estricta de campos vacíos con alertas en pantalla.
@@ -65,7 +66,7 @@ Para ingresar a la aplicación en la pantalla de inicio de sesión:
 
 ---
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```text
 RestauranteMexicano/
@@ -90,7 +91,7 @@ RestauranteMexicano/
 
 ---
 
-## 🚀 Instrucciones de Instalación y Ejecución
+## Instrucciones de Instalación y Ejecución
 
 1. **Clonar o abrir el repositorio:**
    ```bash
