@@ -108,8 +108,3 @@ RestauranteMexicano/
    npx expo start
    ```
 
-4. **Ejecutar en tu dispositivo o emulador:**
-   - Presiona `a` para emulador Android.
-   - Presiona `i` para simulador iOS.
-   - Presiona `w` para abrir en el navegador web.
-   - O escanea el código QR desde la app **Expo Go** en tu teléfono celular.
