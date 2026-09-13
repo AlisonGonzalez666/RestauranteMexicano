@@ -14,7 +14,9 @@ Aplicación móvil desarrollada en **React Native con Expo**, TypeScript y React
 
 ## Enlace del Video Demostrativo
 > **Enlace al video explicativo (YouTube / Google Drive):**  
-> `[COLOCA AQUÍ EL ENLACE DE TU VIDEO DE DEMOSTRACIÓN]`
+> Explicacion de Codigo y APP: https://youtu.be/-qZl7QKMVLA
+
+> Visualizacion de la APP: https://youtube.com/shorts/3uXPvCHA50M
 
 ---
 
