@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import LoginScreen from './src/screens/LoginScreen';
 import CatalogScreen from './src/screens/CatalogScreen';
@@ -11,7 +12,13 @@ import OrderScreen from './src/screens/OrderScreen';
 import HistoryScreen from './src/screens/HistoryScreen';
 import { CartProvider, useCart } from './src/context/CartContext';
 
-const Tab = createBottomTabNavigator();
+export type RootTabParamList = {
+  'Catálogo': undefined;
+  'Mi Orden': undefined;
+  'Historial': undefined;
+};
+
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
 interface MainTabsProps {
   onCerrarSesion: () => void;
@@ -19,6 +26,12 @@ interface MainTabsProps {
 
 function MainTabs({ onCerrarSesion }: MainTabsProps) {
   const { totalItems } = useCart();
+  const insets = useSafeAreaInsets();
+
+  // Asegurar que en dispositivos como Samsung S23 Ultra con barra de 3 botones o barra de gestos
+  // haya suficiente separación inferior para evitar que se superpongan
+  const paddingInferior = Math.max(insets.bottom, 10);
+  const alturaBarra = 58 + paddingInferior;
 
   const confirmarCerrarSesion = () => {
     Alert.alert(
@@ -33,6 +46,7 @@ function MainTabs({ onCerrarSesion }: MainTabsProps) {
 
   return (
     <Tab.Navigator
+      id={undefined}
       screenOptions={({ route }) => ({
         headerStyle: {
           backgroundColor: '#C62828',
@@ -69,8 +83,8 @@ function MainTabs({ onCerrarSesion }: MainTabsProps) {
           backgroundColor: '#FFFFFF',
           borderTopWidth: 1,
           borderTopColor: '#EEEEEE',
-          height: 60,
-          paddingBottom: 8,
+          height: alturaBarra,
+          paddingBottom: paddingInferior,
           paddingTop: 6,
         },
         tabBarLabelStyle: {
@@ -115,16 +129,18 @@ export default function App() {
   const [estaLogeado, setEstaLogeado] = useState<boolean>(false);
 
   return (
-    <CartProvider>
-      <StatusBar style="light" backgroundColor="#B71C1C" />
-      {!estaLogeado ? (
-        <LoginScreen onLoginSuccess={() => setEstaLogeado(true)} />
-      ) : (
-        <NavigationContainer>
-          <MainTabs onCerrarSesion={() => setEstaLogeado(false)} />
-        </NavigationContainer>
-      )}
-    </CartProvider>
+    <SafeAreaProvider>
+      <CartProvider>
+        <StatusBar style="light" />
+        {!estaLogeado ? (
+          <LoginScreen onLoginSuccess={() => setEstaLogeado(true)} />
+        ) : (
+          <NavigationContainer>
+            <MainTabs onCerrarSesion={() => setEstaLogeado(false)} />
+          </NavigationContainer>
+        )}
+      </CartProvider>
+    </SafeAreaProvider>
   );
 }
 

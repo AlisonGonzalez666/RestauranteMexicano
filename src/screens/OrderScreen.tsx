@@ -91,7 +91,11 @@ export default function OrderScreen() {
 
     return (
       <View style={styles.tarjetaItem}>
-        <Image source={{ uri: item.image }} style={styles.imagenItem} resizeMode="cover" />
+        <Image
+          source={typeof item.image === 'string' ? { uri: item.image } : item.image}
+          style={styles.imagenItem}
+          resizeMode="cover"
+        />
         <View style={styles.infoItem}>
           <View style={styles.filaTituloItem}>
             <Text style={styles.nombreItem}>{item.name}</Text>

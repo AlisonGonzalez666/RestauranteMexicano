@@ -94,7 +94,11 @@ export default function CatalogScreen() {
 
     return (
       <View style={styles.tarjeta}>
-        <Image source={{ uri: item.image }} style={styles.imagen} resizeMode="cover" />
+        <Image
+          source={typeof item.image === 'string' ? { uri: item.image } : item.image}
+          style={styles.imagen}
+          resizeMode="cover"
+        />
         <View style={styles.info}>
           <View style={styles.cabeceraTarjeta}>
             <Text style={styles.nombre}>{item.name}</Text>
